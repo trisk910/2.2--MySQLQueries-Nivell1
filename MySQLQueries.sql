@@ -406,3 +406,12 @@ FROM
 WHERE
 	persona.tipo = 'alumno' AND persona.fecha_nacimiento = (SELECT MAX(fecha_nacimiento) FROM persona WHERE tipo = 'alumno');
     
+-- 11. Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura.
+SELECT
+    p.nombre, p.apellido1, p.apellido2
+FROM
+    persona p
+JOIN profesor pr ON p.id = pr.id_profesor
+LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor
+WHERE 
+	pr.id_departamento IS NOT NULL AND a.id IS NULL;
