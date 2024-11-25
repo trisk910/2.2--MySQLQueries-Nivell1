@@ -3,17 +3,17 @@
 SELECT 
     nombre
 FROM
-    s22tienda.producto;
+    producto;
 
 -- 2. Llista els noms i els preus de tots els productes de la taula producto.
 SELECT 
     nombre,
     precio
 FROM
-    s22tienda.producto;
+    producto;
     
 -- 3.Llista totes les columnes de la taula producto.
-SHOW COLUMNS FROM s22tienda.producto;
+SHOW COLUMNS FROM producto;
 
 -- 4. Llista el nom dels productes, el preu en euros i el preu en dòlars estatunidencs (USD).
 SELECT 
@@ -21,7 +21,7 @@ SELECT
     precio,
     ROUND(precio * 0.95, 2)
 FROM 
-    s22tienda.producto;
+    producto;
     
 -- 5. Llista el nom dels productes, el preu en euros i el preu en dòlars estatunidencs (USD). 
 -- Utilitza els següents àlies per a les columnes: nom de producto, euros, dòlars.
@@ -30,59 +30,59 @@ SELECT
     precio AS euros,
     ROUND(precio * 0.95, 2) AS dòlars
 FROM 
-    s22tienda.producto;
+    producto;
 -- 6. Llista els noms i els preus de tots els productes de la taula producto, convertint els noms a majúscula.
 SELECT 
     UPPER(nombre),
     precio
 FROM 
-    s22tienda.producto;
+    producto;
     
 -- 7. Llista els noms i els preus de tots els productes de la taula producto, convertint els noms a minúscula.
 SELECT 
     LOWER(nombre),
     precio
 FROM 
-    s22tienda.producto;
+    producto;
 -- 8. Llista el nom de tots els fabricants en una columna, i en una altra columna obtingui 
 -- en majúscules els dos primers caràcters del nom del fabricant.
 SELECT 
 	nombre,
     CONCAT(UPPER(LEFT(nombre, 2)), SUBSTRING(nombre, 3)) AS nombre_2Mayus
 FROM
-	s22tienda.fabricante;
+	fabricante;
     
 -- 9. Llista els noms i els preus de tots els productes de la taula producto, arrodonint el valor del preu.
 SELECT 
 	nombre,
     ROUND(precio,2)
 FROM
-	s22tienda.producto;
+	producto;
 -- 10. Llista els noms i els preus de tots els productes de la taula producto, truncant el valor del preu
 -- per a mostrar-lo sense cap xifra decimal.    
 SELECT 
 	nombre,
     ROUND(precio)
 FROM
-	s22tienda.producto;
+	producto;
 
 -- 11. Llista el codi dels fabricants que tenen productes en la taula producto.
 SELECT
 	codigo_fabricante
 FROM 
-	s22tienda.producto;
+	producto;
 
 -- 12. Llista el codi dels fabricants que tenen productes en la taula producto, eliminant els codis que apareixen repetits.	
 SELECT 	distinct
 	codigo_fabricante
 FROM 
-	s22tienda.producto;
+	producto;
 
 -- 13. Llista els noms dels fabricants ordenats de manera ascendent.
 SELECT
 	nombre
 FROM
-	s22tienda.fabricante
+	fabricante
 ORDER BY 
 	nombre ASC;
 
@@ -90,7 +90,7 @@ ORDER BY
 SELECT
 	nombre
 FROM
-	s22tienda.fabricante
+	fabricante
 ORDER BY 
 	nombre desc;
     
@@ -99,7 +99,7 @@ ORDER BY
 SELECT 
 	nombre
 FROM 
-	s22tienda.producto
+	producto
 ORDER BY
 nombre ASC, precio DESC;
 
@@ -107,7 +107,7 @@ nombre ASC, precio DESC;
 SELECT
 	*
 FROM
-	s22tienda.fabricante
+	fabricante
 LIMIT
 	5;
 
@@ -116,7 +116,7 @@ LIMIT
 SELECT 
 	*
 FROM 
-	s22tienda.fabricante
+	fabricante
 LIMIT 
 	2 
 OFFSET 3;
